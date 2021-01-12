@@ -74,6 +74,64 @@
 
 [node name="World" type="Node"]
 
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 507.502, -413.246 )
+
+[node name="Player Scores" parent="Player" instance=ExtResource( 13 )]
+
+[node name="Player Controls" parent="Player" instance=ExtResource( 14 )]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player"]
+scroll_base_scale = Vector2( 0.05, 1 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Player/ParallaxBackground"]
+motion_scale = Vector2( 2, 1 )
+
+[node name="camera bacground nori" type="Node2D" parent="Player/ParallaxBackground/ParallaxLayer"]
+script = ExtResource( 1 )
+speed = -80
+left_limit = -10680
+
+[node name="TextureRect" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
+margin_left = -840.0
+margin_top = -1800.0
+margin_right = 3000.0
+margin_bottom = 860.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
+margin_left = 3000.0
+margin_top = -1800.0
+margin_right = 6840.0
+margin_bottom = 860.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
+margin_left = 6840.0
+margin_top = -1800.0
+margin_right = 10680.0
+margin_bottom = 860.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
+margin_left = 10680.0
+margin_top = -1800.0
+margin_right = 14520.0
+margin_bottom = 860.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="paralax" type="Node" parent="."]
 
 [node name="cerul" type="ParallaxBackground" parent="paralax"]
@@ -141,64 +199,6 @@ motion_mirroring = Vector2( 4608, 0 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 24 )
 offset = Vector2( 1080, -500 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 507.502, -413.246 )
-
-[node name="Player Scores" parent="Player" instance=ExtResource( 13 )]
-
-[node name="Player Controls" parent="Player" instance=ExtResource( 14 )]
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Player"]
-scroll_base_scale = Vector2( 0.05, 1 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Player/ParallaxBackground"]
-motion_scale = Vector2( 2, 1 )
-
-[node name="camera bacground nori" type="Node2D" parent="Player/ParallaxBackground/ParallaxLayer"]
-script = ExtResource( 1 )
-speed = -80
-left_limit = -10680
-
-[node name="TextureRect" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
-margin_left = -840.0
-margin_top = -1800.0
-margin_right = 3000.0
-margin_bottom = 860.0
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect2" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
-margin_left = 3000.0
-margin_top = -1800.0
-margin_right = 6840.0
-margin_bottom = 860.0
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect3" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
-margin_left = 6840.0
-margin_top = -1800.0
-margin_right = 10680.0
-margin_bottom = 860.0
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect4" type="TextureRect" parent="Player/ParallaxBackground/ParallaxLayer/camera bacground nori"]
-margin_left = 10680.0
-margin_top = -1800.0
-margin_right = 14520.0
-margin_bottom = 860.0
-texture = ExtResource( 17 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tiles" type="Node" parent="."]
 
