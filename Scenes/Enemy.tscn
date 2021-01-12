@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://art/ghimpi monster.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24, 24 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 81.2391
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="enemyArea" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="enemyArea"]
+position = Vector2( -2.11891, -11.919 )
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyArea"]
+shape = SubResource( 1 )
+
+[node name="right" type="RayCast2D" parent="enemyArea"]
+position = Vector2( 22, 22 )
+enabled = true
+
+[node name="left" type="RayCast2D" parent="enemyArea"]
+position = Vector2( -22, 22 )
+enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
