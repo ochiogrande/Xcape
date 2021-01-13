@@ -24,11 +24,11 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("ui_left"):
 			motion.x = max(motion.x-ACCELARATION,-MAX_SPEED)
 			$Sprite.flip_h = true #flip when left pressed
-			_change_zoom(Vector2(2,2))
 			$Sprite.play("run") 
+			_change_zoom(Vector2(2,2))
 		else:
-			_change_zoom(Vector2(1.8,1.8))
 			$Sprite.play("idle")
+			_change_zoom(Vector2(1.8,1.8))
 			friction = true
 		if is_on_floor():
 			if Input.is_action_pressed("ui_up"):
