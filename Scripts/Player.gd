@@ -8,8 +8,8 @@ const JUMP_SPEED = 1300
 var motion = Vector2()
 var dead = false
 
-onready var background: Node2d = $paralax
-onready var current_mirroring: Vector2 = background.get_child(0).get_child(0).motion_mirroring
+onready var background:Node = get_parent().get_node("paralax")
+var current_mirroring: Vector2 = Vector2(3840, 0)
 
 
 onready var player_cam: Camera2D = $Camera2D #camera for the main character
@@ -76,10 +76,9 @@ func _on_Timer_timeout():
 		dead = false
 		
 func _change_zoom(zoom: Vector2) -> void:
-    var parallax_scale = 0.2 if zoom.x == 2 else 1
-    for bg in background.get_children():
-        var parallax_layer = bg.get_child(0)
-        parallax_layer.motion_mirroring.x = lerp(parallax_layer.motion_mirroring.x, current_mirroring.x * parallax_scale, 0.04)
+	#var parallax_scale: bool = true if zoom.x == 2 else false
+	#for bg in background.get_children():
+	#	bg.scroll_ignore_camera_zoom = parallax_scale
 	#change the zoom for the camera
 	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.05)
 	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.05)
