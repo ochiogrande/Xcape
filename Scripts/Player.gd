@@ -8,6 +8,10 @@ const JUMP_SPEED = 1300
 var motion = Vector2()
 var dead = false
 
+onready var background:Node = get_parent().get_node("paralax")
+var current_mirroring: Vector2 = Vector2(3840, 0)
+
+
 onready var player_cam: Camera2D = $Camera2D #camera for the main character
 
 func _physics_process(delta):
@@ -24,11 +28,11 @@ func _physics_process(delta):
 		elif Input.is_action_pressed("ui_left"):
 			motion.x = max(motion.x-ACCELARATION,-MAX_SPEED)
 			$Sprite.flip_h = true #flip when left pressed
-			_change_zoom(Vector2(2,2))
 			$Sprite.play("run") 
+			_change_zoom(Vector2(2,2))
 		else:
-			_change_zoom(Vector2(1.8,1.8))
 			$Sprite.play("idle")
+			_change_zoom(Vector2(1.8,1.8))
 			friction = true
 		if is_on_floor():
 			if Input.is_action_pressed("ui_up"):
@@ -72,6 +76,9 @@ func _on_Timer_timeout():
 		dead = false
 		
 func _change_zoom(zoom: Vector2) -> void:
+	#var parallax_scale: bool = true if zoom.x == 2 else false
+	#for bg in background.get_children():
+	#	bg.scroll_ignore_camera_zoom = parallax_scale
 	#change the zoom for the camera
-	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.05)
-	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.05)
+	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.007)
+	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.007)
