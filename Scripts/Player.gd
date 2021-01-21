@@ -39,13 +39,10 @@ func _physics_process(delta):
 				if global.sound:
 					$jump_sound.play()
 				motion.y = -JUMP_SPEED
+				
 			if friction == true:
 				motion.x = lerp(motion.x, 0 ,0.2)
 		else:
-			if motion.y < 0 :
-				$Sprite.play("jump")
-			else:
-				$Sprite.play("fall")
 			if friction == true:
 				motion.x = lerp(motion.x, 0 ,0.05) #smooth stop
 		if self.position.y > 120:
@@ -53,6 +50,12 @@ func _physics_process(delta):
 		motion = move_and_slide(motion,Vector2.UP)
 		if global.player_health <= 0:
 			die()
+			
+		_play_anim()
+
+#func _input(event) -> void:
+	
+	
 
 func die():
 	dead = true
@@ -82,3 +85,12 @@ func _change_zoom(zoom: Vector2) -> void:
 	#change the zoom for the camera
 	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.007)
 	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.007)
+
+
+func _play_anim() -> void:
+	var anim = "idle"
+	if !is_on_floor():
+		if motion.y < 0:
+			$Sprite.play("jump")
+		else:
+			$Sprite.play("fall")
