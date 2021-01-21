@@ -80,10 +80,10 @@
 scroll_base_scale = Vector2( 0.01, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/cerul"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/cerul/ParallaxLayer"]
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 11 )
 offset = Vector2( 1080, -500 )
 
@@ -91,10 +91,10 @@ offset = Vector2( 1080, -500 )
 scroll_base_scale = Vector2( 0.05, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/muntii"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/muntii/ParallaxLayer"]
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 20 )
 offset = Vector2( 1080, -500 )
 
@@ -102,10 +102,10 @@ offset = Vector2( 1080, -500 )
 scroll_base_scale = Vector2( 0.07, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/ceata"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/ceata/ParallaxLayer"]
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 22 )
 offset = Vector2( 1080, -500 )
 
@@ -113,10 +113,10 @@ offset = Vector2( 1080, -500 )
 scroll_base_scale = Vector2( 0.1, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/dealuri"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/dealuri/ParallaxLayer"]
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 21 )
 offset = Vector2( 1080, -480 )
 
@@ -124,10 +124,10 @@ offset = Vector2( 1080, -480 )
 scroll_base_scale = Vector2( 0.8, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/apa"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/apa/ParallaxLayer"]
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 23 )
 offset = Vector2( 1080, -500 )
 
@@ -135,11 +135,10 @@ offset = Vector2( 1080, -500 )
 scroll_base_scale = Vector2( 0.8, 1 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="paralax/sub apa"]
-motion_mirroring = Vector2( 5376, 0 )
+motion_mirroring = Vector2( 4608, 0 )
 
 [node name="Sprite" type="Sprite" parent="paralax/sub apa/ParallaxLayer"]
-position = Vector2( 20.0134, 63.9458 )
-scale = Vector2( 1.4, 1.2 )
+scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 24 )
 offset = Vector2( 1080, -500 )
 

@@ -22,7 +22,6 @@ atlas = ExtResource( 6 )
 region = Rect2( 0, 350, 350, 350 )
 
 [sub_resource type="AtlasTexture" id=4]
-
 atlas = ExtResource( 6 )
 region = Rect2( 350, 350, 350, 350 )
 
@@ -77,60 +76,6 @@ region = Rect2( 1170, 576, 390, 288 )
 [sub_resource type="AtlasTexture" id=17]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 864, 390, 288 )
-
-atlas = ExtResource( 5 )
-region = Rect2( 252, 288, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 5 )
-region = Rect2( 504, 288, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 5 )
-region = Rect2( 756, 288, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 576, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 5 )
-region = Rect2( 252, 576, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 5 )
-region = Rect2( 504, 576, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 5 )
-region = Rect2( 252, 0, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 5 )
-region = Rect2( 504, 0, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=13]
-atlas = ExtResource( 5 )
-region = Rect2( 756, 0, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=14]
-atlas = ExtResource( 5 )
-region = Rect2( 0, 288, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 5 )
-region = Rect2( 756, 576, 252, 288 )
-
-[sub_resource type="AtlasTexture" id=16]
-region = Rect2( 0, 192, 84, 96 )
-
-[sub_resource type="AtlasTexture" id=17]
-region = Rect2( 84, 192, 84, 96 )
-
 
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 3 )
@@ -209,7 +154,6 @@ animations = [ {
 "name": "idle",
 "speed": 3.0
 }, {
-
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 21 ), SubResource( 21 ), SubResource( 21 ), SubResource( 21 ), SubResource( 21 ) ],
 "loop": true,
 "name": "die",
@@ -221,52 +165,24 @@ animations = [ {
 "speed": 5.0
 }, {
 "frames": [ SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ) ],
-
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
-
 "loop": true,
 "name": "run",
 "speed": 8.5
 }, {
-
 "frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ) ],
-
-"frames": [ SubResource( 10 ) ],
-"loop": true,
-"name": "drown",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "jump",
 "speed": 2.0
 }, {
-"frames": [ SubResource( 14 ), SubResource( 15 ) ],
-
-"loop": true,
-"name": "jump",
-"speed": 2.0
-}, {
-
 "frames": [ SubResource( 32 ), SubResource( 33 ) ],
-
-"frames": [ SubResource( 16 ), SubResource( 17 ) ],
-
 "loop": false,
 "name": "fire",
 "speed": 1.0
 }, {
-
 "frames": [ SubResource( 46 ), SubResource( 47 ), SubResource( 48 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
-
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 34 ), SubResource( 34 ), SubResource( 34 ), SubResource( 34 ), SubResource( 34 ) ],
-"loop": true,
-"name": "die",
-"speed": 6.7
-
 } ]
 
 [sub_resource type="CapsuleShape2D" id=37]
