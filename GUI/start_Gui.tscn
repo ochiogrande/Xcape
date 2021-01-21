@@ -55,7 +55,10 @@ position = Vector2( 558.913, 354.462 )
 frames = SubResource( 5 )
 animation = "idle"
 <<<<<<< HEAD
+<<<<<<< HEAD
 frame = 1
+=======
+>>>>>>> parent of 20ae125... Merge branch 'main' into main
 =======
 >>>>>>> parent of 20ae125... Merge branch 'main' into main
 speed_scale = 2.0
