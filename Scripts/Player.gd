@@ -80,5 +80,5 @@ func _change_zoom(zoom: Vector2) -> void:
 	#for bg in background.get_children():
 	#	bg.scroll_ignore_camera_zoom = parallax_scale
 	#change the zoom for the camera
-	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.05)
-	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.05)
+	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.007)
+	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.007)
