@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Sprites/Player/Camera background nori.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://art/alien plant 01.png" type="Texture" id=25]
 [ext_resource path="res://art/ciuperca blue.png" type="Texture" id=26]
 [ext_resource path="res://art/Alien Plant Mushroom Type 1 _ 3D model.png" type="Texture" id=27]
+[ext_resource path="res://Scenes/Fallzone.tscn" type="PackedScene" id=28]
 
 [sub_resource type="TileSet" id=1]
 0/name = "alien plant 01.png 0"
@@ -334,4 +335,9 @@ position = Vector2( -56, 4.47833 )
 [node name="Potion2" parent="Potion" instance=ExtResource( 19 )]
 position = Vector2( -452, -3.41401 )
 scale = Vector2( 1, 1 )
+
+[node name="Fallzone" parent="." instance=ExtResource( 28 )]
+position = Vector2( 5838.89, 1195.35 )
+scale_shape = Vector2( 7567, 672 )
 [connection signal="timeout" from="snake/attacktimer" to="snake" method="_on_attacktimer_timeout"]
+[connection signal="body_entered" from="Fallzone" to="Player" method="_on_Fallzone_body_entered"]

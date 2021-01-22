@@ -23,12 +23,11 @@ func _physics_process(delta):
 	if dead == false:
 		_get_input()
 		velocity.y += gravity * delta
-		velocity = move_and_slide(velocity, UP, SLOPE_STOP) 
+		_assign_animation()
 		is_grounded = _check_is_grounded()
+		velocity = move_and_slide(velocity, UP, SLOPE_STOP) 
 		if global.player_health <= 0:
 			die()
-		else:
-			_assign_animation()
 	pass
 	
 func _input(event):
@@ -38,7 +37,7 @@ func _input(event):
 	pass
 	
 func _get_input():
-	var dir = -int(Input.get_action_strength("move_left")) + int(Input.get_action_strength("move_right"))
+	var dir = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	velocity.x = lerp(velocity.x, speed * dir, _get_h_weight())
 	if dir != 0:
 		body.scale.x = dir
@@ -68,8 +67,10 @@ func _assign_animation(animation: String = "idle"):
 				anim = "jump"
 			else:
 				anim = "fall"
-		elif velocity.x >= 0.1 or velocity.x <= -0.1:
+		elif velocity.x >= 0.2 or velocity.x <= -0.2:
 			anim = "run"
+		else:
+			anim = "idle"
 	else:
 		anim = animation
 		
@@ -106,3 +107,9 @@ func _on_Timer_timeout():
 		global.player_health = 100
 		self.position = global.check_point
 		dead = false
+
+
+func _on_Fallzone_body_entered(body):
+	if body.is_in_group("Player"):
+		drown()
+	pass # Replace with function body.
