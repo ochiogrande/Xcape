@@ -68,7 +68,7 @@ func _assign_animation(animation: String = "idle"):
 				anim = "jump"
 			else:
 				anim = "fall"
-		elif velocity.x != 0:
+		elif velocity.x >= 0.1 or velocity.x <= -0.1:
 			anim = "run"
 	else:
 		anim = animation
@@ -82,8 +82,8 @@ func _change_zoom(zoom: Vector2) -> void:
 	#for bg in background.get_children():
 	#	bg.scroll_ignore_camera_zoom = parallax_scale
 	#change the zoom for the camera
-	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.005)
-	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.005)
+	player_cam.zoom.x = lerp(player_cam.zoom.x, zoom.x, 0.007)
+	player_cam.zoom.y = lerp(player_cam.zoom.y, zoom.y, 0.007)
 
 
 func die() -> void:
