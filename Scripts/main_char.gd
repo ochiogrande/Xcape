@@ -68,7 +68,7 @@ func _assign_animation(animation: String = "idle"):
 				anim = "jump"
 			else:
 				anim = "fall"
-		elif velocity.x != 0:
+		elif velocity.x >= 0.1 or velocity.x <= -0.1:
 			anim = "run"
 	else:
 		anim = animation
