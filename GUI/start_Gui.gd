@@ -30,4 +30,5 @@ func _on_Credits_pressed():
 	get_tree().change_scene("res://GUI/Credits.tscn")
 
 func _on_Exit_pressed() -> void:
+	#Exits the tree
 	get_tree().quit()
