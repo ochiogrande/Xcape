@@ -11,7 +11,9 @@ extents = Vector2( 24, 24 )
 [sub_resource type="CircleShape2D" id=3]
 radius = 81.2391
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" groups=[
+"Enemy",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -26,6 +28,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemyArea"]
 shape = SubResource( 1 )
+disabled = true
 
 [node name="right" type="RayCast2D" parent="enemyArea"]
 position = Vector2( 22, 22 )
@@ -37,7 +40,6 @@ enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
-disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 

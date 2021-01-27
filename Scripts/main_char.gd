@@ -9,25 +9,24 @@ const SLOPE_STOP = 64
 export var jump_velocity = -900
 var is_grounded: bool
 var dead: bool = false
+var direction: int 
 
 onready var ground_check: Node2D = $GroundCheck #check for ground using raycasts
-
-
 onready var background:Node = get_parent().get_node("paralax")
+
 var current_mirroring: Vector2 = Vector2(3840, 0)
-
-
 onready var player_cam: Camera2D = $Camera2D #camera for the main character
 
 func _physics_process(delta):
 	if dead == false:
 		_get_input()
 		velocity.y += gravity * delta
-		_assign_animation()
 		is_grounded = _check_is_grounded()
 		velocity = move_and_slide(velocity, UP, SLOPE_STOP) 
 		if global.player_health <= 0:
 			die()
+		#else:
+		#	_assign_animation()
 	pass
 	
 func _input(event):
@@ -37,10 +36,11 @@ func _input(event):
 	pass
 	
 func _get_input():
-	var dir = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
-	velocity.x = lerp(velocity.x, speed * dir, _get_h_weight())
-	if dir != 0:
-		body.scale.x = dir
+	direction = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
+	velocity.x = lerp(velocity.x, speed * direction, _get_h_weight())
+	_assign_animation()
+	if direction != 0:
+		body.scale.x = direction
 		
 	var zoom = Vector2(2.0,2.0) if velocity.x != 0 else Vector2(1.8,1.8)
 	_change_zoom(zoom)
@@ -67,10 +67,8 @@ func _assign_animation(animation: String = "idle"):
 				anim = "jump"
 			else:
 				anim = "fall"
-		elif velocity.x >= 0.2 or velocity.x <= -0.2:
+		elif velocity.x != 0:
 			anim = "run"
-		else:
-			anim = "idle"
 	else:
 		anim = animation
 		
@@ -112,4 +110,11 @@ func _on_Timer_timeout():
 func _on_Fallzone_body_entered(body):
 	if body.is_in_group("Player"):
 		drown()
+	pass # Replace with function body.
+
+
+func _on_HurtBox_body_entered(pBody):
+	if pBody.is_in_group("Enemy"):
+		global.player_health -= pBody.damage
+		$HurtBox._hit_effect(pBody.direction.x)
 	pass # Replace with function body.

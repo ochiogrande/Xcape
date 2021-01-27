@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scripts/main_char.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Sprites/Player/jump up and down sheet new.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Player/new player IDle-sheet.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Player/run sheet new.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Player/hurt player.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/HurtBox.gd" type="Script" id=9]
 [ext_resource path="res://Sounds/Player sounds/jump.wav" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -25,7 +27,7 @@ region = Rect2( 0, 350, 350, 350 )
 atlas = ExtResource( 6 )
 region = Rect2( 350, 350, 350, 350 )
 
-[sub_resource type="AtlasTexture" id=37]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 64, 64 )
 
@@ -94,24 +96,24 @@ atlas = ExtResource( 3 )
 region = Rect2( 1170, 864, 390, 288 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 350, 350 )
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 252, 288 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 7 )
-region = Rect2( 350, 0, 350, 350 )
+atlas = ExtResource( 8 )
+region = Rect2( 252, 0, 252, 288 )
 
 [sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 7 )
-region = Rect2( 700, 0, 350, 350 )
+atlas = ExtResource( 8 )
+region = Rect2( 504, 0, 252, 288 )
 
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 350, 350, 350 )
+atlas = ExtResource( 8 )
+region = Rect2( 0, 288, 252, 288 )
 
 [sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 7 )
-region = Rect2( 350, 350, 350, 350 )
+atlas = ExtResource( 8 )
+region = Rect2( 252, 288, 252, 288 )
 
 [sub_resource type="AtlasTexture" id=27]
 atlas = ExtResource( 5 )
@@ -145,14 +147,34 @@ region = Rect2( 350, 350, 350, 350 )
 atlas = ExtResource( 5 )
 region = Rect2( 700, 350, 350, 350 )
 
-[sub_resource type="SpriteFrames" id=35]
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 350, 350 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 7 )
+region = Rect2( 350, 0, 350, 350 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 7 )
+region = Rect2( 700, 0, 350, 350 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 350, 350, 350 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 7 )
+region = Rect2( 350, 350, 350, 350 )
+
+[sub_resource type="SpriteFrames" id=40]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "idle",
 "speed": 3.0
 }, {
-"frames": [ SubResource( 37 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
 "name": "drown",
 "speed": 5.0
@@ -164,8 +186,8 @@ animations = [ {
 }, {
 "frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
 "loop": true,
-"name": "run",
-"speed": 6.0
+"name": "hurt",
+"speed": 5.0
 }, {
 "frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 28 ), SubResource( 29 ) ],
 "loop": false,
@@ -181,10 +203,19 @@ animations = [ {
 "loop": true,
 "name": "fall",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
+"loop": true,
+"name": "run",
+"speed": 6.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=36]
-radius = 71.9843
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 71.97
+height = 119.009
+
+[sub_resource type="CapsuleShape2D" id=42]
+radius = 71.97
 height = 119.009
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -199,15 +230,15 @@ jump_velocity = -1100
 position = Vector2( -1.98425, -4.36536 )
 scale = Vector2( 0.9, 0.9 )
 z_index = 3
-frames = SubResource( 35 )
-animation = "run"
-frame = 4
+frames = SubResource( 40 )
+animation = "idle"
+frame = 3
 speed_scale = 1.4
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.98425, 10.8654 )
-shape = SubResource( 36 )
+shape = SubResource( 41 )
 
 [node name="jump_sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
@@ -249,4 +280,16 @@ collision_mask = 0
 position = Vector2( -17.9796, 101.885 )
 enabled = true
 collision_mask = 0
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="HurtBox"]
+wait_time = 0.554
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource( 42 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="body_entered" from="HurtBox" to="." method="_on_HurtBox_body_entered"]
+[connection signal="timeout" from="HurtBox/Timer" to="HurtBox" method="_on_Timer_timeout"]
