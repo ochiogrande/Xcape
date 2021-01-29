@@ -1,9 +1,10 @@
 extends KinematicBody2D
-
-
 const SPEED = 70
 var direction = Vector2(1,0)
 var mouvement = Vector2()
+export(float, 0.0, 50.0) var damage: float = 15.0
+
+onready var player: KinematicBody2D 
 
 func _ready():
 	$enemyArea.connect("body_entered",self,"player_touched")
@@ -25,10 +26,6 @@ func player_touched(body):
 	if body.name == "Player":
 		global.player_health -= 15
 		
-
-
-
-
 
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
