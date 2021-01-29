@@ -3,10 +3,10 @@ extends KinematicBody2D
 var velocity: Vector2 = Vector2(0,0)
 const UP = Vector2(0,-1)
 onready var body: Node2D = $Body
-var gravity: int = 1200
-export var speed: int = 500
-const SLOPE_STOP = 64
-export var jump_velocity = -900
+var gravity: int = 2600
+export var speed: int = 700
+const SLOPE_STOP = 70
+export var jump_velocity = -1500
 var is_grounded: bool
 var dead: bool = false
 var direction: int 
@@ -41,8 +41,7 @@ func _get_input():
 	_assign_animation()
 	if direction != 0:
 		body.scale.x = direction
-                direction = direction
-		
+	direction = direction
 	var zoom = Vector2(2.0,2.0) if velocity.x != 0 else Vector2(1.8,1.8)
 	_change_zoom(zoom)
 
