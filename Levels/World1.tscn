@@ -145,7 +145,7 @@ texture = ExtResource( 24 )
 offset = Vector2( 1080, -500 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 4712.82, -262.225 )
+position = Vector2( 213.992, -1573.26 )
 
 [node name="Player Scores" parent="Player" instance=ExtResource( 13 )]
 

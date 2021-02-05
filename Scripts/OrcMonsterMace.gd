@@ -3,6 +3,7 @@ extends KinematicBody2D
 var WALK_SPEED = 80
 var direction = Vector2(1,0)
 var mouvements = Vector2()
+export(int, 1, 50) var damage: int = 15
 
 func _ready():
 	$Area2D.connect("body_entered",self,"player_touched")
@@ -20,8 +21,8 @@ func _physics_process(delta):
 		move_and_slide(mouvements)
 
 func flip_attack():
-	print(get_node("../Player").position.x)
-	print(self.position.x)
+	#print(get_node("../Player").position.x)
+	#print(self.position.x)
 	if self.position.x > get_node("../Player").position.x:
 		direction.x = -1
 		$Area2D/AnimatedSprite.set_flip_h(true)
@@ -31,7 +32,7 @@ func flip_attack():
 
 func player_touched(body):
 	if body.name == "Player":
-		global.player_health -= 15
+		#global.player_health -= 15
 		$Area2D/AnimatedSprite.play("attack")
 		WALK_SPEED = 0
 		flip_attack()

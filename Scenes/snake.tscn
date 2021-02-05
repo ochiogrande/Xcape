@@ -81,18 +81,19 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=18]
-extents = Vector2( 45, 35 )
+extents = Vector2( 62.6237, 35 )
 
 [sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 53.8043, 32.9215 )
 
 [sub_resource type="CircleShape2D" id=20]
 radius = 148.636
 
-[node name="snake" type="KinematicBody2D"]
+[node name="snake" type="KinematicBody2D" groups=[
+"Enemy",
+]]
+position = Vector2( 2.51984, 0 )
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -101,29 +102,31 @@ position = Vector2( -8, 8 )
 scale = Vector2( 0.7, 0.7 )
 frames = SubResource( 17 )
 animation = "idle"
-frame = 6
+frame = 5
 speed_scale = 1.8
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 18.8988, 0 )
 shape = SubResource( 18 )
-
-[node name="right_limit" type="RayCast2D" parent="Area2D"]
-position = Vector2( 5, 32 )
-enabled = true
 
 [node name="left_limit" type="RayCast2D" parent="Area2D"]
 position = Vector2( -21, 30 )
 enabled = true
 
+[node name="right_limit" type="RayCast2D" parent="Area2D"]
+position = Vector2( 5, 32 )
+enabled = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2( 17.6389, 1.25992 )
 shape = SubResource( 19 )
-disabled = true
 
 [node name="Area2D2" type="Area2D" parent="."]
+visible = false
 
 [node name="radar" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 0, 1.25993 )
 shape = SubResource( 20 )
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_Area2D2_body_entered"]
