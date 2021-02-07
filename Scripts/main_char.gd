@@ -42,6 +42,8 @@ func _get_input():
 	_assign_animation()
 	if dir != 0:
 		body.scale.x = dir
+		
+
 	var zoom = Vector2(2.0,2.0) if velocity.x != 0 else Vector2(1.8,1.8)
 	_change_zoom(zoom)
 
