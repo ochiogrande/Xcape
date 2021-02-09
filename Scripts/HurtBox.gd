@@ -25,7 +25,7 @@ func _get_hurt() -> void:
 		player.velocity.y = lerp(player.velocity.y, -320, 0.1) if !player.is_grounded else 0
 		Body.get_child(0).play("hurt")
 		player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
-
+		
 		
 func _hit_effect(direction: int) -> void:
 		
