@@ -26,8 +26,6 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity, UP, SLOPE_STOP) 
 		if global.player_health <= 0:
 			die()
-		else:
-			_assign_animation()
 	pass
 	
 func _input(event):
@@ -39,7 +37,7 @@ func _input(event):
 func _get_input():
 	var dir = -int(Input.is_action_pressed("move_left")) + int(Input.is_action_pressed("move_right"))
 	velocity.x = lerp(velocity.x, speed * dir, _get_h_weight())
-	#_assign_animation()
+	_assign_animation()
 	if dir != 0:
 		body.scale.x = dir
 		pass
@@ -68,7 +66,7 @@ func _assign_animation(animation: String = "idle"):
 				anim = "jump"
 			else:
 				anim = "fall"
-		elif velocity.x != 0:
+		elif velocity.x >= 0.1 or velocity.x <= -0.1:
 				anim = "run"
 	else:
 		anim = animation
